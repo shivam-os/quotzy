@@ -1,25 +1,16 @@
+const Quotation = require("../config/db").quotation;
 
 //GET method to return all quotations
-exports.getAllQuotations = () => {
-
-}
+exports.getAllQuotations = () => {};
 
 //GET method to return a single quotation
-exports.getSingleQuotation = () => {
-
-}
+exports.getSingleQuotation = () => {};
 
 //POST method to insert a new quotation
-exports.createQuotation = () => {
-
-}
+exports.createQuotation = () => {};
 
 //PUT method to update an existing quotation
-exports.updateQuotation = () => {
-
-}
+exports.updateQuotation = () => {};
 
 //DELETE method to delete an existing quotation
-exports.deleteQuotation = () => {
-  
-}
+exports.deleteQuotation = () => {};

@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", quotationController.getAllQuotations);
 
 //GET request to return a single quotation with given id
-router.get("/:id", quotationController.getSingleQuotation)
+router.get("/:id", quotationController.getSingleQuotation);
 
 //POST request to insert new quotation
 router.post("/", quotationController.createQuotation);
