@@ -1,5 +1,6 @@
 const express = require("express");
 const quotationController = require("../controllers/quotationController");
+const quotationValidator = require("../utils/quotationValidator");
 const router = express.Router();
 
 //GET request to return all quotations
@@ -9,10 +10,18 @@ router.get("/", quotationController.getAllQuotations);
 router.get("/:id", quotationController.getSingleQuotation);
 
 //POST request to insert new quotation
-router.post("/", quotationController.createQuotation);
+router.post(
+  "/",
+  quotationValidator.createQuotation,
+  quotationController.createQuotation
+);
 
 //PUT request to update an existing quotation with given id
-router.put("/:id", quotationController.updateQuotation);
+router.put(
+  "/:id",
+  quotationValidator.createQuotation,
+  quotationController.updateQuotation
+);
 
 //DELETE request to delete an existing quotation with given id
 router.delete("/:id", quotationController.deleteQuotation);

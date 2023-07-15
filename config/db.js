@@ -22,6 +22,7 @@ const checkDBConnection = async () => {
 };
 checkDBConnection();
 
+//Create db object
 const db = {
   Sequelize: Sequelize,
   sequelize: sequelize,

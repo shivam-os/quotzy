@@ -14,6 +14,7 @@ app.use(morgan("dev"));
 //App routes
 app.use(`${baseUrl}/quotations`, quotationRoutes);
 
+//Start the app
 app.listen(PORT, () => {
   console.log(`Server is running...`);
 });

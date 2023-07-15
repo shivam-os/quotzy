@@ -1,7 +1,9 @@
 const Quotation = require("../config/db").quotation;
 
 //GET method to return all quotations
-exports.getAllQuotations = () => {};
+exports.getAllQuotations = () => {
+  
+};
 
 //GET method to return a single quotation
 exports.getSingleQuotation = () => {};
