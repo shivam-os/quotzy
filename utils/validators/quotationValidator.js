@@ -12,7 +12,7 @@ exports.createQuotation = [
     .trim()
     .notEmpty()
     .withMessage("Status field cannot be empty.")
-    .contains("pending", "done")
+    .isIn(["pending", "done"])
     .withMessage("Status value can be either 'pending' or 'done'"),
 
   body("parts_name").trim().notEmpty(),

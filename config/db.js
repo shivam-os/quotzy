@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
+require("dotenv").config();
 
-//Create connection to the mysql database
+//Create connection to the database using given credentials
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USERNAME,
@@ -22,7 +23,6 @@ const checkDBConnection = async () => {
 };
 checkDBConnection();
 
-//Create db object
 const db = {
   Sequelize: Sequelize,
   sequelize: sequelize,
@@ -39,7 +39,7 @@ const syncAllTables = async () => {
 };
 syncAllTables();
 
-//Add the model to the db object
+//Add the models to the above db object
 db.quotation = require("../models/quotation")(sequelize, DataTypes);
 
 module.exports = db;
