@@ -10,6 +10,7 @@ exports.getAllQuotations = asyncErrorHandler(async (req, res) => {
     limit: pageLimit,
     offset: (req.query.page - 1) * pageLimit,
     attributes: ["qid", "company_name", "status", "parts_name", "amount"],
+    order: [['createdAt', 'DESC'] ]
   });
   res.status(200).json({ page: req.query.page, data });
 });
