@@ -1,6 +1,6 @@
 # quotzy
 
-A simple API to perform CRUD opertaions.
+A simple API to perform CRUD operations.
 
 Documentation Link: <a href="https://documenter.getpostman.com/view/25028761/2s946h6rd5" target="_blank">Check Here</a>
 <br/>
