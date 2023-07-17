@@ -27,8 +27,8 @@ exports.getSingleQuotation = asyncErrorHandler(async (req, res, next) => {
 });
 
 //POST method to insert a new quotation
-exports.createQuotation = asyncErrorHandler(async (req, res) => {
-  if (validationErrors(req, res)) {
+exports.createQuotation = asyncErrorHandler(async (req, res, next) => {
+  if (validationErrors(req, res, next)) {
     return
   }
 
@@ -39,6 +39,10 @@ exports.createQuotation = asyncErrorHandler(async (req, res) => {
 
 //PUT method to update an existing quotation
 exports.updateQuotation = asyncErrorHandler(async (req, res, next) => {
+  if (validationErrors(req, res, next)) {
+    return
+  }
+  
   const { company_name, status, parts_name, amount } = req.body;
   const updatedQuotation = await Quotation.update(
     { company_name, status, parts_name, amount },
