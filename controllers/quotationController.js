@@ -5,11 +5,13 @@ const validationErrors = require("../utils/validators/validationErrors");
 
 //GET method to return all quotations
 exports.getAllQuotations = asyncErrorHandler(async (req, res) => {
+  const pageLimit = 10;
   const data = await Quotation.findAll({
+    limit: pageLimit,
+    offset: (req.query.page - 1) * pageLimit,
     attributes: ["qid", "company_name", "status", "parts_name", "amount"],
   });
-
-  res.status(200).json({ data });
+  res.status(200).json({ page: req.query.page, data });
 });
 
 //GET method to return a single quotation
@@ -29,7 +31,7 @@ exports.getSingleQuotation = asyncErrorHandler(async (req, res, next) => {
 //POST method to insert a new quotation
 exports.createQuotation = asyncErrorHandler(async (req, res, next) => {
   if (validationErrors(req, res, next)) {
-    return
+    return;
   }
 
   const { company_name, status, parts_name, amount } = req.body;
@@ -40,9 +42,9 @@ exports.createQuotation = asyncErrorHandler(async (req, res, next) => {
 //PUT method to update an existing quotation
 exports.updateQuotation = asyncErrorHandler(async (req, res, next) => {
   if (validationErrors(req, res, next)) {
-    return
+    return;
   }
-  
+
   const { company_name, status, parts_name, amount } = req.body;
   const updatedQuotation = await Quotation.update(
     { company_name, status, parts_name, amount },
